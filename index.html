@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chhabra's Homemade Baked Goods</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3ed;
+            color: #4a2c2a;
+        }
+        .text-brown { color: #4a2c2a; }
+        .bg-cream { background-color: #f7f3ed; }
+        .bg-light-brown { background-color: #d1b898; }
+        .bg-dark-brown { background-color: #4a2c2a; }
+        .shadow-custom { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 8px 20px rgba(0, 0, 0, 0.1); }
+        .gallery-container {
+            display: none;
+        }
+        input:focus, textarea:focus {
+            outline: 2px solid #d1b898;
+            outline-offset: 2px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-cream shadow-md fixed w-full z-50">
+        <nav class="container mx-auto p-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-dark-brown tracking-tighter">
+                Chhabra's Homemade Baked Goods
+            </a>
+            <div class="hidden md:flex items-center space-x-6 text-lg font-medium">
+                <a href="#products" class="hover:text-light-brown transition duration-300">Products</a>
+                <a href="#about" class="hover:text-light-brown transition duration-300">About Us</a>
+                <a href="#reviews" class="hover:text-light-brown transition duration-300">Reviews</a>
+                <!-- Instagram Icon in the navigation bar -->
+                <a href="https://www.instagram.com/chhabras_homemade_baked_goods/" target="_blank" aria-label="Instagram" class="hover:text-light-brown transition duration-300">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-dark-brown focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream pt-2 pb-4 shadow-inner">
+            <a href="#products" class="block py-2 px-4 text-center text-brown hover:bg-light-brown/20 transition duration-300">Products</a>
+            <a href="#about" class="block py-2 px-4 text-center text-brown hover:bg-light-brown/20 transition duration-300">About Us</a>
+            <a href="#reviews" class="block py-2 px-4 text-center text-brown hover:bg-light-brown/20 transition duration-300">Reviews</a>
+            <a href="https://www.instagram.com/your-username" target="_blank" aria-label="Instagram" class="block py-2 px-4 text-center text-brown hover:bg-light-brown/20 transition duration-300">
+                <i class="fab fa-instagram mr-2"></i>Instagram
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+
+        <section 
+        class="relative text-white py-20 md:py-32 rounded-b-3xl shadow-lg bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1655886745951-db90d0ea97cb?q=80&w=2957&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); min-height: 50vh;">
+        
+        <!-- semi-transparent brown overlay -->
+        <div class="absolute inset-0 rounded-b-3xl" style="background-color: rgba(74,44,42,0.45); z-index: 0;"></div>
+
+        <!-- Content above overlay -->
+        <div class="relative container mx-auto px-6 text-center" style="z-index: 1;">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+            Sweet, Simple, <span class="text-light-brown">Homemade</span>.
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto">
+            Freshly baked goods made with love and the finest ingredients, delivered right to your door.
+            </p>
+            <a href="#products" class="inline-block bg-light-brown text-dark-brown font-bold text-lg py-3 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
+            Explore Our Products
+            </a>
+        </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-dark-brown">Our Delicious Creations</h2>
+
+                <!-- Product Categories View -->
+                <div id="product-categories" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Category Card: Cakes -->
+                    <div class="bg-white rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition duration-300 cursor-pointer" onclick="showGallery('cakes-gallery')">
+                        <img src="https://placehold.co/600x400/d1b898/4a2c2a?text=Cakes" alt="Cakes" class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-dark-brown">Cakes</h3>
+                        </div>
+                    </div>
+                    <!-- Category Card: Theme Cakes -->
+                    <div class="bg-white rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition duration-300 cursor-pointer" onclick="showGallery('theme-cakes-gallery')">
+                        <img src="https://placehold.co/600x400/98d1b8/4a2c2a?text=Theme+Cakes" alt="Theme Cakes" class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-dark-brown">Theme Cakes</h3>
+                        </div>
+                    </div>
+                    <!-- Category Card: Anniversary Cakes -->
+                    <div class="bg-white rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition duration-300 cursor-pointer" onclick="showGallery('anniversary-cakes-gallery')">
+                        <img src="https://placehold.co/600x400/b898d1/4a2c2a?text=Anniversary+Cakes" alt="Anniversary Cakes" class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-dark-brown">Anniversary Cakes</h3>
+                        </div>
+                    </div>
+                    <!-- Category Card: Donuts -->
+                    <div class="bg-white rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition duration-300 cursor-pointer" onclick="showGallery('donuts-gallery')">
+                        <img src="https://placehold.co/600x400/d1b898/4a2c2a?text=Chocolates" alt="Donuts" class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-dark-brown">Chocolates</h3>
+                        </div>
+                    </div>
+                    <!-- Category Card: Brownies -->
+                    <div class="bg-white rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition duration-300 cursor-pointer" onclick="showGallery('brownies-gallery')">
+                        <img src="https://placehold.co/600x400/98d1b8/4a2c2a?text=Gifts" alt="Brownies" class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-dark-brown">Gifts</h3>
+                        </div>
+                    </div>
+                    <!-- Category Card: Cookies -->
+                    <div class="bg-white rounded-3xl shadow-custom overflow-hidden transform hover:-translate-y-2 transition duration-300 cursor-pointer" onclick="showGallery('cookies-gallery')">
+                        <img src="https://placehold.co/600x400/b898d1/4a2c2a?text=Cookies" alt="Cookies" class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-2xl font-semibold mb-2 text-dark-brown">Cookies</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Galleries (initially hidden) -->
+                <div id="cakes-gallery" class="gallery-container">
+                    <button onclick="showCategories()" class="bg-dark-brown text-white py-2 px-6 rounded-full font-medium hover:bg-light-brown hover:text-dark-brown transition duration-300 mb-8">
+                        &larr; Back to Categories
+                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-dark-brown">Cakes</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- 15 placeholder images for Cakes -->
+                        <img src="/images/c1.png" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c2.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c3.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c4.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c5.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c6.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c7.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c8.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c9.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c10.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c11.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/c12.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    </div>
+                </div>
+
+                <div id="theme-cakes-gallery" class="gallery-container">
+                    <button onclick="showCategories()" class="bg-dark-brown text-white py-2 px-6 rounded-full font-medium hover:bg-light-brown hover:text-dark-brown transition duration-300 mb-8">
+                        &larr; Back to Categories
+                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-dark-brown">Theme Cakes</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- 15 placeholder images for Theme Cakes -->
+                        <img src="/images/t1.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t2.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t3.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t4.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t5.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t6.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t7.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/t8.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    </div>
+                </div>
+
+                <div id="anniversary-cakes-gallery" class="gallery-container">
+                    <button onclick="showCategories()" class="bg-dark-brown text-white py-2 px-6 rounded-full font-medium hover:bg-light-brown hover:text-dark-brown transition duration-300 mb-8">
+                        &larr; Back to Categories
+                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-dark-brown">Anniversary Cakes</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- 15 placeholder images for Anniversary Cakes -->
+                        <img src="/images/a1.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a2.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a3.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a4.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a5.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a6.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a7.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a8.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a9.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a10.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a11.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/a12.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    </div>
+                </div>
+
+                <div id="donuts-gallery" class="gallery-container">
+                    <button onclick="showCategories()" class="bg-dark-brown text-white py-2 px-6 rounded-full font-medium hover:bg-light-brown hover:text-dark-brown transition duration-300 mb-8">
+                        &larr; Back to Categories
+                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-dark-brown">Chocolates</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- 15 placeholder images for Donuts -->
+                        <img src="/images/ch1.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch2.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch3.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch4.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch5.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch6.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch7.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch8.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/ch9.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    </div>
+                </div>
+
+                <div id="brownies-gallery" class="gallery-container">
+                    <button onclick="showCategories()" class="bg-dark-brown text-white py-2 px-6 rounded-full font-medium hover:bg-light-brown hover:text-dark-brown transition duration-300 mb-8">
+                        &larr; Back to Categories
+                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-dark-brown">Chocloate Bouquet</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        
+                        <img src="/images/b1.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b2.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b3.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b4.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b5.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b6.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b7.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        <img src="/images/b8.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                        
+                    </div>
+                </div>
+
+                <div id="cookies-gallery" class="gallery-container">
+                    <button onclick="showCategories()" class="bg-dark-brown text-white py-2 px-6 rounded-full font-medium hover:bg-light-brown hover:text-dark-brown transition duration-300 mb-8">
+                        &larr; Back to Categories
+                    </button>
+                    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-dark-brown">Cookies</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        
+                    <img src="/images/ck1.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck2.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck3.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck4.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck5.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck6.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck7.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+                    <img src="/images/ck8.jpg" class="w-[400px] h-[400px] rounded-xl object-cover" />
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section 
+        class="relative text-white py-20 md:py-32 rounded-b-3xl shadow-lg bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1661551428747-0771270cc6a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            <div class="absolute inset-0 rounded-b-3xl" style="background-color: rgba(74, 44, 42, 0.5);"></div>
+
+            <div class="relative container mx-auto px-6 text-center" style="z-index: 1;">
+            <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+            About Us
+            </h2>
+                <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto">
+                    Born from a passion for baking and a love for homemade treats, Chhabra's Homemade Baked Goods was founded by a family dedicated to bringing joy through our kitchen. We believe that the best food is made with a personal touch and the finest, freshest ingredients.
+                </p>
+                <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto">
+                    Our journey started in our home kitchen, creating delicious recipes for family and friends. The overwhelming love and support inspired us to share our creations with our community. We take pride in every single bake, ensuring it meets our high standards of quality and taste. Thank you for being a part of our sweet story!
+                </p>
+            </div>
+        </section>
+
+        <!-- Google Maps Reviews Section -->
+        <section id="reviews" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-dark-brown">What Our Customers Say</h2>
+                <!-- Google Reviews Simulation -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Review Card 1 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-custom">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/f7f3ed/d1b898?text=AK" alt="Customer Photo" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-brown">Amarjeet Kumar</h4>
+                                <div class="flex text-yellow-400">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"Absolutely delicious! The cake was not only beautifully decorated but also incredibly fresh and flavorful. The attention to detail and the perfect balance of sweetness made it the highlight of our celebration. Highly recommended – we'll definitely be back for more!"</p>
+                    </div>
+                    <!-- Review Card 2 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-custom">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/f7f3ed/d1b898?text=SD" alt="Customer Photo" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-brown">Sumit Das</h4>
+                                <div class="flex text-yellow-400">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"The cakes and chocolates here are absolutely amazing. The rich flavors come through in every bite, and everything is so beautifully made. I love how much care they put into each detail, and the quality of ingredients really shines through. It never fails to satisfy my sweet cravings...!"</p>
+                    </div>
+                    <!-- Review Card 3 -->
+                    <div class="bg-white rounded-2xl p-6 shadow-custom">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/50x50/f7f3ed/d1b898?text=KS" alt="Customer Photo" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-brown">Karamjeet Singh</h4>
+                                <div class="flex text-yellow-400">
+                                    &#9733;&#9733;&#9733;&#9733;&#9733;
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"The taste of finger licking cakes is awesome. Cakes, pastries and all items are very carefully hygienically prepared. Thanks for providing us good taste at reasonable price."</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Chhabra's+homemade+baked+goods" target="_blank" class="inline-block bg-dark-brown text-white font-bold text-lg py-3 px-8 rounded-full shadow-lg hover:bg-light-brown hover:text-dark-brown transition duration-300">
+                        View More Reviews on Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-brown text-white py-12 rounded-t-3xl">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+            <div class="flex justify-center space-x-6 text-2xl mb-4">
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/chhabras_homemade_baked_goods" target="_blank" aria-label="Instagram" class="hover:text-light-brown transition duration-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <!-- Phone Number -->
+                <a href="tel:+917007717390" aria-label="Phone" class="hover:text-light-brown transition duration-300">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <!-- Phone Number -->
+                <a href="tel:+917007658600" aria-label="Phone" class="hover:text-light-brown transition duration-300">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <!-- Google Maps -->
+                <a href="https://www.google.com/maps/place/Chhabra's+Homemade+Baked+Goods/@26.9267539,81.1865471,17z/data=!4m14!1m7!3m6!1s0x399961d9377d2687:0x3cd0f5a14a737c60!2sChhabra's+Homemade+Baked+Goods!8m2!3d26.9267491!4d81.189122!16s%2Fg%2F11w42ld4hp!3m5!1s0x399961d9377d2687:0x3cd0f5a14a737c60!8m2!3d26.9267491!4d81.189122!16s%2Fg%2F11w42ld4hp?entry=ttu&g_ep=EgoyMDI1MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" aria-label="Google Maps" class="hover:text-light-brown transition duration-300">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-gray-400">
+                &copy; 2025 Chhabra's Homemade Baked Goods. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu toggle and gallery navigation -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const productCategories = document.getElementById('product-categories');
+        const galleries = document.querySelectorAll('.gallery-container');
+
+        // Function to show a specific gallery and hide the categories view
+        function showGallery(galleryId) {
+            productCategories.style.display = 'none';
+            galleries.forEach(gallery => {
+                gallery.style.display = 'none';
+            });
+            const selectedGallery = document.getElementById(galleryId);
+            selectedGallery.style.display = 'block';
+            selectedGallery.classList.add('animate-fadeIn'); // Add animation class
+        }
+
+        // Function to show the categories view and hide all galleries
+        function showCategories() {
+            productCategories.style.display = 'grid';
+            productCategories.classList.add('animate-fadeIn'); // Add animation class
+            galleries.forEach(gallery => {
+                gallery.style.display = 'none';
+                gallery.classList.remove('animate-fadeIn'); // Remove animation class
+            });
+        }
+    </script>
+</body>
+</html>
